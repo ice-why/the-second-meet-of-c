@@ -1,0 +1,58 @@
+void begin() {
+	printf("************************************\n");
+	printf("*********  1.play  2.exit  *********\n");
+	
+
+}
+
+void play() {
+	//operating a random number
+	int input2;
+	int ret = 0;
+	ret = rand();
+	while (1)
+	{
+		printf("please guess a number =>:");
+		scanf("%d", &input2);
+		if (ret == input2)
+		{
+			printf("congratulations,you are right!\n");
+			break;
+		}
+		else if (ret >= input2)
+		{
+			printf("the number of your guessing is less than the truly number.\n");
+		}
+		else if (ret <= input2)
+		{
+			printf("the number of your guessing is greater than the truly number.\n");
+		}
+	}
+	
+
+}
+
+int main()
+{
+	int input1 = 1;
+	srand((unsigned int)time(NULL));
+		do
+		{
+			begin();
+			printf("请做出选择=>:");
+			scanf("%d", &input1);
+			if (input1 == 1)
+			{
+				play();
+
+			}
+			else if (input1 == 2)
+				break;
+			else
+				printf("输入错误，请重新做出选择！\n");
+		} 		
+		while (1);
+	printf("游戏结束\n");
+	return 0;
+
+}
