@@ -1,0 +1,41 @@
+斐波那契数列数列的计算可以用递归的方法计算得到，但是当计算较大的斐波那契数时，在计算过程中一些变量往往会被重复使用到，使得计算效率低下。
+//利用递归来实现斐波那契数列的计算
+int Fib(int n)
+{
+	if (n <= 2)
+		return 1;
+	else
+		return Fib(n - 1) + Fib(n - 2);
+}
+
+
+另外一种计算方式是通过利用循环来实现。
+//利用循环来实现斐波那契数列的计算
+#include <stdio.h>
+int Fib(int);
+int main() 
+{
+	int n = 0;
+	int ret = 0;
+	scanf("%d", &n);
+	ret = Fib(n);
+	printf("ret = %d\n", ret);
+	return 0;
+}
+int Fib(int n)
+{
+	int ret = 1;
+	int i = 1;
+	int j = 1;
+	int k = 1;
+	if (n >= 3)
+	{
+		for (k = 3; k <= n; k++)
+		{
+			ret = i + j;
+			i = j;
+			j = ret;
+		}
+	}
+	return ret;
+}
